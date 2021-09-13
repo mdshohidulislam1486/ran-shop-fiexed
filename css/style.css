@@ -31,7 +31,7 @@ body {
   /* border: 1px solid black; */
   text-align: center;
   width: 100%;
-  margin: auto;
+  grid-row-gap: 1em;
   align-items: center;
   justify-content: center;
 }
@@ -54,8 +54,7 @@ body {
   padding: 10px;
   box-shadow: 10px 10px 20px gray;
   border-radius: 5px;
-  margin-right: 30px;
-  position: fixed;
+  position: absolute;
 }
 .cart-main {
   padding-right: 30px;
@@ -63,7 +62,8 @@ body {
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap:1em;
   }
   .cart {
     width: 300px;
@@ -71,8 +71,7 @@ body {
     padding: 10px;
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;
-    margin-right: 30px;
-    position: fixed;
+    position: absolute;
   }
   .cart-main {
     padding-right: 10px;
