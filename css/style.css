@@ -100,7 +100,7 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-
+/* star sign css design  */
 :root {
   --star-size: 30px;
   --star-color: gray;

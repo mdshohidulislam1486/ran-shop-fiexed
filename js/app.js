@@ -11,11 +11,11 @@ loadDefault();
 
 // find product with category
 const loadProducts=()=>{
-  const inputField= document.getElementById('input-field')
+  const inputField= document.getElementById('input-field');
   const searchText = inputField.value;
   
   if(!searchText){
-    return
+    return;
   }
   const ulr = `https://fakestoreapi.com/products/category/${searchText}`
   inputField.value ='';
@@ -23,20 +23,19 @@ const loadProducts=()=>{
   fetch(ulr)
   .then(res =>res.json())
   .then(data => showSearchProducts(data))
-  .catch(error => {console.log(error)})
+  .catch(error => {console.log(error)});
 }
 
-// show product by category 
-document.getElementById('search-warning').style.visibility ='hidden'
+// show product by category on search result
+document.getElementById('search-warning').style.visibility ='hidden';
 const showSearchProducts = (products) => {
   document.getElementById("search-products").textContent = '';
-  console.log(products)
   if(products.length){
-  document.getElementById('search-warning').style.visibility ='hidden'
+  document.getElementById('search-warning').style.visibility ='hidden';
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
-    const id = product.id
+    const id = product.id;
     const div = document.createElement("div");
     div.classList.add("product", 'card', 'h-100', 'm-2', 'single-product');
     div.innerHTML = `<div class="">
@@ -52,14 +51,12 @@ const showSearchProducts = (products) => {
       <button onclick='getDetailsById(${id})' id="details-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button></div>
       `;
     
-    document.getElementById("search-products").appendChild(div);
+     document.getElementById("search-products").appendChild(div);
+    }
+  } else{
+    document.getElementById('search-warning').style.visibility ='visible';
   }
-} else{
-  document.getElementById('search-warning').style.visibility ='visible'
-}
-};
-
-
+ };
 
 
 // show all product in UI 
@@ -67,7 +64,7 @@ const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
-    const id = product.id
+    const id = product.id;
     const div = document.createElement("div");
     div.classList.add("product", 'card', 'h-100', 'm-2', 'single-product');
     div.innerHTML = `<div class="">
@@ -85,6 +82,7 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -93,7 +91,7 @@ const addToCart = (id, price) => {
   updateTaxAndCharge();
   updateTotal();
   document.getElementById("total-Products").innerText = count;
-  document.getElementById('cart-main').style.display ='block'
+  document.getElementById('cart-main').style.display ='block';
   
 };
 
@@ -143,18 +141,17 @@ const updateTotal = () => {
 
 // buy now check out from cart 
 document.getElementById('buy-now').addEventListener('click', function(){
-  location.reload()
+  location.reload();
 })
 
 const getDetailsById=product=>{
-
 
   const url = `https://fakestoreapi.com/products/${product}`
 
   fetch(url)
   .then(res => res.json())
   .then(data => displayDetail(data))
-  .catch(error=>{console.log(error)})
+  .catch(error=>{console.log(error)});
 }
 
 const displayDetail=details=>{
@@ -162,7 +159,7 @@ const displayDetail=details=>{
   const textContent = `${details.description}`;
  
 document.getElementById('card-title').innerText = title;
-document.getElementById('card-img').setAttribute('src', details.image)
+document.getElementById('card-img').setAttribute('src', details.image);
 document.getElementById('card-text').innerText = textContent;
   
 }

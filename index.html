@@ -13,7 +13,6 @@
   <!-- boostrap CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link rel="shortcut icon" href="image/icon.png" type="image/x-icon">
-
   <!-- google Montserrat  font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,30 +30,21 @@
            <input id="input-field" type="text" class="form-control" placeholder="Enter product category" aria-label="" aria-describedby="basic-addon2">
            <button class="input-group-text" id="basic-addon2" id="search-btn" onclick="loadProducts()"><i class="fas fa-search"></i></button>
          </div>
-   
        </div>
     </section>
     
-    <!-- search results   -->
+    <!-- search results by category  -->
     <section class="container my-5">
       <p id='search-warning' class="text-center text-danger">Please enter a valid category sucn as: men's clothing, jewelery, electronics, women's clothing etc.  </p>
       <div id="search-products"  class="all-products">
-      
-    
       </div>
-
     </section>
     
-    <!-- dynamic product result  -->
+    <!-- dynamic product result during page loding  -->
     <section class="container ">
         <div id="all-products"  class="all-products">
-          
         </div>
 
-        <!-- modal for details  -->
-        <!-- Vertically centered modal -->
-      <!-- Button trigger modal -->
-    
       <!-- Modal -->
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
