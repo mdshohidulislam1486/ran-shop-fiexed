@@ -7,7 +7,6 @@ const loadDefault = () => {
     .then((data) => showProducts(data))
     .catch(error =>{console.log(error)});
 }; 
-
 loadDefault();
 
 // find product with category
@@ -28,8 +27,12 @@ const loadProducts=()=>{
 }
 
 // show product by category 
+document.getElementById('search-warning').style.visibility ='hidden'
 const showSearchProducts = (products) => {
+  document.getElementById("search-products").textContent = '';
   console.log(products)
+  if(products.length){
+  document.getElementById('search-warning').style.visibility ='hidden'
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
@@ -48,8 +51,12 @@ const showSearchProducts = (products) => {
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button onclick='getDetailsById(${id})' id="details-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button></div>
       `;
+    
     document.getElementById("search-products").appendChild(div);
   }
+} else{
+  document.getElementById('search-warning').style.visibility ='visible'
+}
 };
 
 
