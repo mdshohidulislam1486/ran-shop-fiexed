@@ -5,10 +5,14 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranga Store</title>
+  <title>Shopaholic</title>
+  <!-- font awesome link  -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <!-- css customize style sheet  -->
   <link rel="stylesheet" href="./css/style.css" />
-  <!-- CSS only -->
+  <!-- boostrap CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="shortcut icon" href="image/icon.png" type="image/x-icon">
 
   <!-- google Montserrat  font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,8 +35,8 @@
            </button>
          </div> -->
          <div class="input-group mb-3">
-           <input id="input-field" type="text" class="form-control" placeholder="Enter a name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-           <span class="input-group-text" id="basic-addon2" id="search-btn" onclick="loadProducts()">Search</span>
+           <input id="input-field" type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon2">
+           <button class="input-group-text" id="basic-addon2" id="search-btn" onclick="loadProducts()"><i class="fas fa-search"></i></button>
          </div>
    
        </div>
@@ -44,6 +48,34 @@
         <div id="all-products"  class="col-md-4">
           
         </div>
+
+        <!-- modal for details  -->
+        <!-- Vertically centered modal -->
+      <!-- Button trigger modal -->
+    
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="card bg-secondary">
+              <img id="card-img" src="" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 id="card-title" class="card-title text-light"></h5>
+                <p id="card-text" class="card-text text-light"></p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Vertically centered scrollable modal -->
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  ...
+</div>
     </section>
 
 
@@ -94,7 +126,7 @@
             </tbody>
           </table>
           <div class="parces text-center">
-            <button class="btn btn-primary text-center">Buy Now</button>
+            <button id='buy-now' class="btn btn-primary text-center">Buy Now</button>
           </div>
         </div>
       </div>

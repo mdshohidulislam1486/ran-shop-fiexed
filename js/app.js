@@ -1,18 +1,21 @@
-const loadProducts = () => {
+const loadDefault = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data))
     .catch(error =>{console.log(error)});
 }; 
-loadProducts();
+
+loadDefault();
+
+
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products)
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
+    const id = product.id
     const div = document.createElement("div");
     div.classList.add("product", 'card', 'h-100', 'm-2', 'single-product');
     div.innerHTML = `<div class="">
@@ -22,10 +25,10 @@ const showProducts = (products) => {
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
-      <p><div class="Stars" style="--rating:${product.rating.rate};" aria-label="Rating of this product is 2.3 out of 5."></div></p>
+      <p><div class="Stars" style="--rating:${product.rating.rate};" aria-label="Rating of this product is 2.3 out of 5."></div><span class='text-warning fs-5'> ${product.rating.rate}</span></p>
       <p>${product.rating.count} reviews </p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick='getDetailsById(${id})' id="details-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -83,6 +86,32 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-    console.log(grandTotal)
     setInnerText('total', parseFloat(grandTotal).toFixed(2));
 };
+
+// buy now check out from cart 
+document.getElementById('buy-now').addEventListener('click', function(){
+  location.reload()
+})
+
+const getDetailsById=product=>{
+
+  console.log(product)
+  const url = `https://fakestoreapi.com/products/${product}`
+
+  fetch(url)
+  .then(res => res.json())
+  .then(data => displayDetail(data))
+  .catch(error=>{console.log(error)})
+}
+
+const displayDetail=details=>{
+  const title = `${details.title}`;
+  const textContent = `${details.description}`;
+ 
+  console.log(details.title)
+document.getElementById('card-title').innerText = title;
+document.getElementById('card-img').setAttribute('src', details.image)
+document.getElementById('card-text').innerText = textContent;
+  
+}
