@@ -27,25 +27,25 @@
     <!-- search button  -->
     <section>
       <div class="search-field w-50 mx-auto mt-5">
-        <!--  <div class="search-box">
-           <input id="input-field" class="search-field" type="text" />
-           <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-             autocomplete="off" id="search-btn" onclick="loadProducts()">
-             Search
-           </button>
-         </div> -->
          <div class="input-group mb-3">
-           <input id="input-field" type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon2">
+           <input id="input-field" type="text" class="form-control" placeholder="Enter product category" aria-label="" aria-describedby="basic-addon2">
            <button class="input-group-text" id="basic-addon2" id="search-btn" onclick="loadProducts()"><i class="fas fa-search"></i></button>
          </div>
    
        </div>
     </section>
     
+    <!-- search results   -->
+    <section class="container my-5">
+      <div id="search-products"  class="all-products">
+    
+      </div>
+
+    </section>
+    
     <!-- dynamic product result  -->
     <section class="container ">
-      <div class="row mt-5 pt-5 mb-5">
-        <div id="all-products"  class="col-md-4">
+        <div id="all-products"  class="all-products">
           
         </div>
 
@@ -71,11 +71,7 @@
           </div>
         </div>
       </div>
-
-<!-- Vertically centered scrollable modal -->
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-  ...
-</div>
+    </div>
     </section>
 
 

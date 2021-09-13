@@ -1,3 +1,5 @@
+
+// deaful load page 
 const loadDefault = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
@@ -7,6 +9,49 @@ const loadDefault = () => {
 }; 
 
 loadDefault();
+
+// find product with category
+const loadProducts=()=>{
+  const inputField= document.getElementById('input-field')
+  const searchText = inputField.value;
+  
+  if(!searchText){
+    return
+  }
+  const ulr = `https://fakestoreapi.com/products/category/${searchText}`
+  inputField.value ='';
+
+  fetch(ulr)
+  .then(res =>res.json())
+  .then(data => showSearchProducts(data))
+  .catch(error => {console.log(error)})
+}
+
+// show product by category 
+const showSearchProducts = (products) => {
+  console.log(products)
+  const allProducts = products.map((pd) => pd);
+  for (const product of allProducts) {
+    const image = product.image;
+    const id = product.id
+    const div = document.createElement("div");
+    div.classList.add("product", 'card', 'h-100', 'm-2', 'single-product');
+    div.innerHTML = `<div class="">
+      <div>
+    <img class="product-image" src=${image}></img>
+      </div>
+      <h3>${product.title}</h3>
+      <p>Category: ${product.category}</p>
+      <h2>Price: $ ${product.price}</h2>
+      <p><div class="Stars" style="--rating:${product.rating.rate};" aria-label="Rating of this product is 2.3 out of 5."></div><span class='text-warning fs-5'> ${product.rating.rate}</span></p>
+      <p>${product.rating.count} reviews </p>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+      <button onclick='getDetailsById(${id})' id="details-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button></div>
+      `;
+    document.getElementById("search-products").appendChild(div);
+  }
+};
+
 
 
 
@@ -96,7 +141,7 @@ document.getElementById('buy-now').addEventListener('click', function(){
 
 const getDetailsById=product=>{
 
-  console.log(product)
+
   const url = `https://fakestoreapi.com/products/${product}`
 
   fetch(url)
@@ -109,7 +154,6 @@ const displayDetail=details=>{
   const title = `${details.title}`;
   const textContent = `${details.description}`;
  
-  console.log(details.title)
 document.getElementById('card-title').innerText = title;
 document.getElementById('card-img').setAttribute('src', details.image)
 document.getElementById('card-text').innerText = textContent;
