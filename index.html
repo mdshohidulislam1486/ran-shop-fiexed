@@ -20,12 +20,14 @@
 </head>
 
 <body class="container">
-  <header></header>
+  <header>
+    <h1 class="text-center mt-3 fst-italic"><span class="text-success">Shopa</span><span class="text-warning">holic </span></h1>
+  </header>
   <main class="main">
 
     <!-- search button  -->
     <section>
-      <div class="search-field w-50 mx-auto mt-5">
+      <div class="search-field w-50 mx-auto mt-3">
          <div class="input-group mb-3">
            <input id="input-field" type="text" class="form-control" placeholder="Enter product category" aria-label="" aria-describedby="basic-addon2">
            <button class="input-group-text" id="basic-addon2" id="search-btn" onclick="loadProducts()"><i class="fas fa-search"></i></button>
@@ -34,15 +36,15 @@
     </section>
     
     <!-- search results by category  -->
-    <section class="container my-5">
-      <p id='search-warning' class="text-center text-danger">Please enter a valid category sucn as: men's clothing, jewelery, electronics, women's clothing etc.  </p>
+    <section class="container my-1 ">
+      <p id='search-warning' class="text-center text-danger fs-5 fst-italic">Please enter a valid category sucn as: men's clothing, jewelery, electronics, women's clothing etc.  </p>
       <div id="search-products"  class="all-products">
       </div>
     </section>
     
     <!-- dynamic product result during page loding  -->
     <section class="container ">
-        <div id="all-products"  class="all-products">
+        <div id="all-products"  class="all-products mb-5">
         </div>
 
       <!-- Modal -->

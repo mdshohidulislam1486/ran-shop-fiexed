@@ -1,6 +1,14 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+/* singel card transperancy  */
+
+.product{
+background-color:red;
 }
 .search-field {
   border: none;
@@ -43,6 +51,7 @@ body {
   box-shadow: 4px 4px 7px gray;
   border-radius: 10px;
   border: 1px solid cyan;
+  background-color: rgba(255, 255, 255, .50);
 }
 .product-image {
   width: 150px;

@@ -15,6 +15,7 @@ const loadProducts=()=>{
   const searchText = inputField.value;
   
   if(!searchText){
+    document.getElementById('search-warning').style.visibility ='hidden';
     return;
   }
   const ulr = `https://fakestoreapi.com/products/category/${searchText}`
