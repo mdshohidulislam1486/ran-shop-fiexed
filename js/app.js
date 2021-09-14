@@ -12,7 +12,7 @@ loadDefault();
 // find product with category
 const loadProducts=()=>{
   const inputField= document.getElementById('input-field');
-  const searchText = inputField.value;
+  const searchText = (inputField.value).toLowerCase();
   
   if(!searchText){
     document.getElementById('search-warning').style.visibility ='hidden';
